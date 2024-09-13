@@ -6,3 +6,5 @@
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2d3fs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
