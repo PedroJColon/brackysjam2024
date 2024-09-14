@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ii25i"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(586, 330)
 script = ExtResource("1_prigt")
 
@@ -14,3 +14,6 @@ shape = SubResource("CircleShape2D_ii25i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_rjbuv")
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(109, 0)
