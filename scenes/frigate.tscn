@@ -1,10 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://3ihattadquq5"]
+[gd_scene load_steps=6 format=3 uid="uid://3ihattadquq5"]
+
+[ext_resource type="Script" path="res://src/frigate.gd" id="1_1l2qi"]
+[ext_resource type="Texture2D" uid="uid://2kbya64r3r1" path="res://assets/frigate.png" id="2_wfaxv"]
+[ext_resource type="PackedScene" uid="uid://du5tjsu1aolsy" path="res://scenes/health.tscn" id="3_kysj7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2d3fs"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r33vh"]
+size = Vector2(442, 346)
+
 [node name="frigate" type="CharacterBody2D"]
+script = ExtResource("1_1l2qi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2d3fs")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wfaxv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Health" parent="." instance=ExtResource("3_kysj7")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(0, 272)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(29, -10)
+shape = SubResource("RectangleShape2D_r33vh")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
