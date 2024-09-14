@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpicu3eeqeyvy"]
+[gd_scene load_steps=6 format=3 uid="uid://cpicu3eeqeyvy"]
 
 [ext_resource type="Script" path="res://src/drone.gd" id="1_u4esf"]
 [ext_resource type="Texture2D" uid="uid://bxpjhevftx7c2" path="res://icon.svg" id="2_p6bal"]
+[ext_resource type="PackedScene" uid="uid://du5tjsu1aolsy" path="res://scenes/health.tscn" id="3_hrjhn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtfoh"]
 
@@ -21,5 +22,8 @@ texture = ExtResource("2_p6bal")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_t6kxk")
+
+[node name="Health" parent="." instance=ExtResource("3_hrjhn")]
+health = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -18,7 +18,9 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("bullet"):
 		body.queue_free()
-		queue_free()
+		$Health.decrement_health(1.0)
+		if $Health.health <= 0:
+			queue_free()
 	if body.is_in_group("player"):
 		# Replace this with health system
 		print("OucH!")
