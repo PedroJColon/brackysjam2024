@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5cdvg5jiw8r8"]
+[gd_scene load_steps=4 format=3 uid="uid://b5cdvg5jiw8r8"]
 
 [ext_resource type="PackedScene" uid="uid://dqvh1yao2xovp" path="res://scenes/player.tscn" id="1_nygvq"]
 [ext_resource type="PackedScene" uid="uid://cpicu3eeqeyvy" path="res://scenes/drone.tscn" id="2_r2p26"]
+[ext_resource type="PackedScene" uid="uid://3ihattadquq5" path="res://scenes/frigate.tscn" id="3_tvjt4"]
 
 [node name="Sandbox" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_nygvq")]
+position = Vector2(823, 442)
 
 [node name="drone" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_r2p26")]
 position = Vector2(212, 196)
 player = NodePath("../Player")
+
+[node name="frigate" parent="." instance=ExtResource("3_tvjt4")]
+position = Vector2(91, 376)
