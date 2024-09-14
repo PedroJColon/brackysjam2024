@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cpicu3eeqeyvy"]
 
 [ext_resource type="Script" path="res://src/drone.gd" id="1_u4esf"]
-[ext_resource type="Texture2D" uid="uid://bxpjhevftx7c2" path="res://icon.svg" id="2_p6bal"]
+[ext_resource type="Texture2D" uid="uid://gjff4dgyfii5" path="res://assets/drone.png" id="2_x5ojy"]
 [ext_resource type="PackedScene" uid="uid://du5tjsu1aolsy" path="res://scenes/health.tscn" id="3_hrjhn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtfoh"]
@@ -9,6 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_t6kxk"]
 
 [node name="drone" type="CharacterBody2D"]
+position = Vector2(0, -3)
 script = ExtResource("1_u4esf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,7 +17,7 @@ shape = SubResource("RectangleShape2D_vtfoh")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_p6bal")
+texture = ExtResource("2_x5ojy")
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqvh1yao2xovp"]
+[gd_scene load_steps=6 format=3 uid="uid://dqvh1yao2xovp"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_prigt"]
-[ext_resource type="Texture2D" uid="uid://bxpjhevftx7c2" path="res://icon.svg" id="2_rjbuv"]
+[ext_resource type="Texture2D" uid="uid://c63200d6hiffj" path="res://assets/player.png" id="2_jhd13"]
 [ext_resource type="PackedScene" uid="uid://du5tjsu1aolsy" path="res://scenes/health.tscn" id="3_up1vg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ii25i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t8yjx"]
+radius = 40.7922
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(586, 330)
@@ -12,11 +15,22 @@ script = ExtResource("1_prigt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ii25i")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rjbuv")
+texture = ExtResource("2_jhd13")
 
 [node name="BulletSpawn" type="Marker2D" parent="."]
 position = Vector2(109, 0)
 
 [node name="Health" parent="." instance=ExtResource("3_up1vg")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_t8yjx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
