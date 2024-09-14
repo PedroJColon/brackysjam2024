@@ -10,6 +10,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var collide = move_and_collide(velocity * delta)
+	
 	pass
 	
 func set_bullet(_position, _direction):
