@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b6n52kphj88s6"]
+[gd_scene load_steps=2 format=3 uid="uid://b6n52kphj88s6"]
+
+[ext_resource type="Script" path="res://src/game_over.gd" id="1_2bddj"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -7,3 +9,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2bddj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -54.5
+offset_right = 81.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Game Over[center]"
+fit_content = true
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play Again?"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

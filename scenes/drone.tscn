@@ -8,7 +8,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t6kxk"]
 
-[node name="drone" type="CharacterBody2D"]
+[node name="drone" type="CharacterBody2D" groups=["drone"]]
 position = Vector2(0, -3)
 script = ExtResource("1_u4esf")
 
@@ -19,9 +19,9 @@ disabled = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_x5ojy")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["drone"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["drone"]]
 shape = SubResource("CircleShape2D_t6kxk")
 
 [node name="Health" parent="." instance=ExtResource("3_hrjhn")]

@@ -29,4 +29,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		$Health.decrement_health(1)
 		if $Health.check_state():
 			visible = false
-	pass # Replace with function body.
+			call_deferred("game_over")
+	if body.is_in_group("drone"):
+		$Health.decrement_health(2)
+		if $Health.check_state():
+			visible = false
+			call_deferred("game_over")
+				
+func game_over() -> void:
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")

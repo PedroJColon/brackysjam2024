@@ -25,10 +25,7 @@ position = Vector2(109, 0)
 
 [node name="Health" parent="." instance=ExtResource("3_up1vg")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.4, 0.4)
-
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_t8yjx")

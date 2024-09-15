@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu6kutvsdo306"]
+[gd_scene load_steps=3 format=3 uid="uid://bu6kutvsdo306"]
+
+[ext_resource type="PackedScene" uid="uid://du5tjsu1aolsy" path="res://scenes/health.tscn" id="1_q7xcr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_apevl"]
 
@@ -8,3 +10,5 @@
 shape = SubResource("CircleShape2D_apevl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Health" parent="." instance=ExtResource("1_q7xcr")]
